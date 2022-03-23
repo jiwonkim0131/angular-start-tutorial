@@ -11,6 +11,9 @@
     <a [title]="product.name + ' details'">{{ product.name }}</a>
     <!-- <a title="{{ product.name }} details">{{ product.name }}</a> -->
   </h3>
+  <!-- 4. *ngIf 디렉티브를 이용한 상품 설명 추가
+  <p>엘리먼트에 *ngIf 디렉티브를 추가하면 상품 설명이 존재할 때만 상품의 설명을 위한 엘리먼트가 추가된다. -->
+  <p *ngIf="product.description">Description: {{ product.description }}</p>
 </div>
 
 <!-- 
