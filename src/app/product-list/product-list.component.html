@@ -6,7 +6,11 @@
 <div *ngFor="let product of products">
   <!-- 2. 문자열 바인딩(interpolation) -->
   <!-- 상품 목록의 상품명을 바인딩한다. -->
-  <h3>{{ product.name }}</h3>
+  <h3>
+    <!-- #프로퍼티 바인딩 문법[] : 프로퍼티 값을 템플릿 표현식으로 활용할 수 있다. -->
+    <a [title]="product.name + ' details'">{{ product.name }}</a>
+    <!-- <a title="{{ product.name }} details">{{ product.name }}</a> -->
+  </h3>
 </div>
 
 <!-- 
