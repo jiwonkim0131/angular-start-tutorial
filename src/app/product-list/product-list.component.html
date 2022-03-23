@@ -1,5 +1,13 @@
 <h2>Products</h2>
 
+<!-- 1. 구조 디렉티브 사용(*ngFor) -->
+<!-- 구조 디렉티브는 DOM 요소(엘리먼트)를 반복 생성, 조건에 의한 추가/제거를 하며 레이아웃을 변경한다. -->
+<!-- *ngFor를 이용해 상품 목록(products)에 있는 개별 상품마다 각각 div 엘리먼트를 생성한다. -->
+<div *ngFor="let product of products">
+  <!-- 2. 문자열 바인딩(interpolation) -->
+  <!-- 상품 목록의 상품명을 바인딩한다. -->
+  <h3>{{ product.name }}</h3>
+</div>
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.
