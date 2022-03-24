@@ -1,5 +1,5 @@
 //ProductAlertsComponent가 상품 데이터를 받으려면 @angular/core 패키지가 제공하는 Input 심볼을 로드해야 한다.
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../products';
 
 //ProductListComponent(부모 컴폰너트)에서 데이터(Product)를 받는 자식 컴포넌트(ProductAlertsComponent) 만들기
@@ -16,11 +16,14 @@ import { Product } from '../products';
 })
 
 //@Component() 데코레이터 뒤에는 컴포넌트의 동작을 정의할 클래스를 ProductAlertsComponent와 같이 선언
-export class ProductAlertsComponent implements OnInit {
+export class ProductAlertsComponent {
   //프로퍼티에 @Input() 데코레이터를 지정하면 해당 프로퍼티의 값을 부모 컴포넌트에서 받아온다는 것을 의미
   //이 컴포넌트의 부모 컴포넌트를 어떻게 연결할 수 있을까?
-  @Input() product!: Product;
-  constructor() {}
+  // @Input() product!: Product;   //ts-Definite Assignment Assertion
+  @Input() product: Product | undefined; //product 프로퍼티는 선언만 한 상태이므로 Product 혹은 undefined 타입
 
-  ngOnInit() {}
+  //notify프로퍼티에 @Output 데코레이터를 지정하고 EventEmitter 인스턴스를 할당한다.
+  // @Output() 데코레이터를 지정하면 ProductAlertsComponent가 notify 프로퍼티를 통해 이벤트를 보낼 수 있다
+  @Output() notify = new EventEmitter();
+  constructor() {}
 }
